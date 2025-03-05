@@ -1,7 +1,6 @@
 package models
 
 import (
-	"go/doc"
 	"time"
 )
 
@@ -28,7 +27,14 @@ type Member struct {
 	Payments   []Payment          `bson:"payments"`
 	Status     string             `bson:"status" validate:"oneof=active expelled candidate"`
 }
-
+type Apartment struct {
+	ID         primitive.ObjectID `bson:"_id,omitempty" json:"id,omitempty"`
+	Number     int8               `bson:"number" json:"number,omitempty"`          //Номер квартиры
+	Area       float32            `bson:"area" json:"area,omitempty"`              //Площадь квартиры
+	IdWm       primitive.ObjectID `bson:"_id,omitempty" json:"id___cwm,omitempty"` //Ссылка на список счетчиков
+	Payments   []Payment          `bson:"payments"`                                // Сведения по оплате по квартире
+	Ap_account string             `bson:"Ap_account" json:"Ap_Account,omitempty"`  // Лицевой счет привязанный к квартире
+}
 type Payment struct {
 	Date        time.Time `bson:"date"`
 	Amount      float64   `bson:"amount"`
