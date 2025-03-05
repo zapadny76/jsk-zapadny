@@ -34,3 +34,18 @@ type Payment struct {
 	Amount      float64   `bson:"amount"`
 	PaymentType string    `bson:"paymentType"`
 }
+type User struct {
+	ChatID          int `bson:"chat_id"`
+	ApartmentNumber int `bson:"apartment_number"`
+}
+type Reading struct {
+	ApartmentNumber int       `bson:"apartment_number"`
+	Date            time.Time `bson:"date"`
+	Cold            float64   `bson:"cold"`
+	Hot             float64   `bson:"hot"`
+}
+type News struct {
+	Title   string    `bson:"title"`
+	Content string    `bson:"content"`
+	Date    time.Time `bson:"date"`
+}
